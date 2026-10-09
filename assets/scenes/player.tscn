@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d3orb8ioouqwk"]
+
+[ext_resource type="Script" uid="uid://04gkl6c5mlrp" path="res://assets/scripts/player.gd" id="1_s027a"]
+[ext_resource type="Texture2D" uid="uid://cnk6rsc7st7rq" path="res://assets/resources/sprites/alien8x8.png" id="2_s027a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s027a"]
+size = Vector2(48, 56)
+
+[node name="Player" type="RigidBody2D" unique_id=1420331743]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_s027a")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1653194806]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("2_s027a")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1341002457]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_s027a")

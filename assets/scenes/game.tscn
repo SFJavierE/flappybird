@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bh5hln74e4uq6"]
+
+[ext_resource type="PackedScene" uid="uid://to6nnnyjl664" path="res://assets/scenes/column.tscn" id="1_dis88"]
+[ext_resource type="PackedScene" uid="uid://d3orb8ioouqwk" path="res://assets/scenes/player.tscn" id="2_5gf0t"]
+[ext_resource type="Script" uid="uid://bqcdt1cdqfoed" path="res://assets/scripts/origin.gd" id="2_cb5na"]
+[ext_resource type="Script" uid="uid://d2ko7g54mxws3" path="res://assets/scripts/death_zone.gd" id="4_cb5na"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gf0t"]
+size = Vector2(1350, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb5na"]
+size = Vector2(237, 650)
+
+[node name="Game" type="Node2D" unique_id=368732453]
+
+[node name="Player" parent="." unique_id=1420331743 instance=ExtResource("2_5gf0t")]
+position = Vector2(-446, -198)
+jump_force = 800
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=490753400]
+position = Vector2(17, -240)
+
+[node name="Origin" type="Node2D" parent="." unique_id=32345937]
+position = Vector2(657, 23)
+script = ExtResource("2_cb5na")
+
+[node name="Column" parent="Origin" unique_id=1930207569 instance=ExtResource("1_dis88")]
+
+[node name="Timer" type="Timer" parent="Origin" unique_id=32064426]
+wait_time = 5.0
+autostart = true
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=1730269930]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_cb5na")
+
+[node name="BotCollision" type="CollisionShape2D" parent="DeathZone" unique_id=2114602889]
+position = Vector2(-79, 233)
+shape = SubResource("RectangleShape2D_5gf0t")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="DeathZone" unique_id=573011131]
+position = Vector2(-684.5, -242)
+shape = SubResource("RectangleShape2D_cb5na")
+
+[connection signal="timeout" from="Origin/Timer" to="Origin" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
