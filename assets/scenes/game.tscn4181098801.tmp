@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3orb8ioouqwk" path="res://assets/scenes/player.tscn" id="2_5gf0t"]
 [ext_resource type="Script" uid="uid://bqcdt1cdqfoed" path="res://assets/scripts/origin.gd" id="2_cb5na"]
-[ext_resource type="Script" uid="uid://de74a1ajd6tnr" path="res://assets/scripts/column_detector.gd" id="2_j62u1"]
+[ext_resource type="Script" uid="uid://de74a1ajd6tnr" path="res://assets/scenes/column_detector.gd" id="2_j62u1"]
 [ext_resource type="Script" uid="uid://d2ko7g54mxws3" path="res://assets/scripts/death_zone.gd" id="4_cb5na"]
 [ext_resource type="PackedScene" uid="uid://d4ete2up7h2i7" path="res://assets/scenes/score.tscn" id="5_j62u1"]
 
@@ -19,8 +19,8 @@ position = Vector2(-446, -198)
 jump_force = 800
 
 [node name="ColumnDetector" type="RayCast2D" parent="Player" unique_id=1124628884]
-position = Vector2(-4, -738)
-target_position = Vector2(0, 1069)
+position = Vector2(3, -377)
+target_position = Vector2(0, 665)
 script = ExtResource("2_j62u1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=490753400]

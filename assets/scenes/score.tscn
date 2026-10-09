@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d4ete2up7h2i7"]
+
+[ext_resource type="Script" uid="uid://cwfjaura8braa" path="res://assets/scripts/score.gd" id="1_kt4nc"]
+
+[node name="Score" type="Control" unique_id=1357773091]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kt4nc")
+
+[node name="Counter" type="TextEdit" parent="." unique_id=1484999463]
+layout_mode = 0
+offset_left = 38.0
+offset_right = 86.0
+offset_bottom = 44.0
+text = " 0"
